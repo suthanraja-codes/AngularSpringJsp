@@ -32,7 +32,7 @@ public class UserService {
 		repo.deleteById(id);
 	}
 
-	public List<UserEntity> getUserByGender(String gender) {
-		 return repo.findByGender(gender);
+	public List<UserEntity> getUserByGender(String EmpGender) {
+		 return repo.findByGender(EmpGender);
 	}
 }

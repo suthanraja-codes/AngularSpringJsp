@@ -4,26 +4,11 @@
 <head>
 
 	<style>
-	.header{
-    background-color: rgba(201, 0, 0, 0.884);
-    height: 100px;
-    padding-left: 40px;
-    padding-top: 9px;
-    color: white;
-}
-th{
-    background-color: black;
-    color: white;
-}
-.btn{
-    margin-left: 15px;
-}
-form>h3{
-		color: green;
-	}
-	#home{
-		width: 70px;
-	}
+	
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+	
+	
 	</style>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -38,44 +23,49 @@ form>h3{
     <header class="header">
     <h1>Employee Details</h1>
     </header>
-    <table class="table table-bordered table-stripped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>AGE</th>
-            <th>GENDER</th>
-            <th>MOBILE NO</th>
-            <th>LOCATION</th>
-            <th>EDIT</th>
-        </tr>
-    </thead>
-    <tbody>
-     <c:forEach var="user" items="${users}">
-        <tr>
-            <td>${user.id }</td>
-            <td>${user.name }</td>
-            <td>${user.age}</td>
-            <td>${user.gender}</td>
-            <td>${user.mobile }</td>
-            <td>${user.location}</td>
-            <td>  <a href="/getuser/${user.id}" type="button" class="btn btn-success">Update</a>
-               <a href="/deleteuser/${user.id}" type="button" class="btn btn-danger">Delete</a></td>
-        </tr>
-        </c:forEach>
-    </tbody>
+    <table class="table table-striped table-dark" >
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Gender</th>  
+                <th>Destination</th>
+                <th>Salary</th>
+                <th>Branch</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <c:forEach var="user" items="${users}">
+                     <td>${user.id}</td>
+                    <td>${user.empName}</td>
+                    <td>${user.empAge}</td>
+                    <td>${user.empEmail}</td>
+                    <td>${user.empGender}</td>
+                    <td>${user.empDestination}</td>
+                    <td>${user.empSalary}</td>
+                    <td>${user.empBranch}</td>
+                    <td ><a href="/getuser/${user.id}" type="button" class="btn btn-success">Update</a> </td>
+                    <td><a href="/deleteuser/${user.id}" type="button" class="btn btn-danger">Delete</a></td>
+            </tr>
+            </c:forEach>
+        </tbody>
     </table>
     
     <form action="/getuserbygender" method="post">
-    <h3>Filter by Gender</h3>
-    <div class="gender">
-     <input type="radio" name="gender" id="gender" value="Male"> <label for="gender">Male</label><br>
-      <input type="radio" name="gender" id="gender" value="Female"> <label for="gender">Female</label>
-      </div>
-    <input type="submit" value="Search" class="btn btn-primary" style="margin-left: 0">
-</form>
+    	<h3>Filter by Gender</h3>
+	    <div class="gender">
+	     <input type="radio" name="gender" id="gender" value="Male"> <label for="gender">Male</label><br>
+	      <input type="radio" name="gender" id="gender" value="Female"> <label for="gender">Female</label>
+	      </div>
+	    <input type="submit" value="Search" class="btn btn-primary" style="margin-left: 0">
+	</form>
 
-	<form action="/index">
+	<form action="/create">
 	 <input type="submit" value="Home" class="btn btn-warning" style="margin-left: 0" id="home">
 	</form>
 	

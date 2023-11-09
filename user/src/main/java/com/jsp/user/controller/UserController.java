@@ -25,7 +25,7 @@ public class UserController {
 	
 	@RequestMapping("/index")
 	public String home() {
-		return "index";
+		return "create";
 	}
 	
 	@RequestMapping("/create")
@@ -56,11 +56,14 @@ public class UserController {
 		
 		UserEntity user1=service.getUserById(id);
 		user1.setId(id);
-		user1.setName(user.getName());
-		user1.setAge(user.getAge());
-		user1.setGender(user.getGender());
-		user1.setMobile(user.getMobile());
-		user1.setLocation(user.getLocation());
+		user1.setEmpName(user.getEmpName());
+		user1.setEmpAge(user.getEmpAge());
+		user1.setEmpGender(user.getEmpGender());
+		user1.setEmpEmail(user.getEmpEmail());
+		user1.setEmpDestination(user.getEmpDestination());
+		user1.setEmpSalary(user.getEmpSalary());
+		user1.setEmpBranch(user.getEmpBranch());
+		
 		service.updateDetails(user1);
 		return "redirect:/getuser";
 	}
@@ -72,11 +75,11 @@ public class UserController {
 		return "redirect:/getuser";
 	}
 	
-	@PostMapping("/getuserbygender")
-	public String getDataByGender(@RequestParam String gender,  Model model) {
-		List<UserEntity> userby = service.getUserByGender(gender);
-		model.addAttribute("users",userby);
-		return "viewgender";
-	}
-	
+//	@PostMapping("/getuserbygender")
+//	public String getDataByGender(@RequestParam String empGender,  Model model) {
+//		List<UserEntity> userby = service.getUserByGender(empGender);
+//		model.addAttribute("users",userby);
+//		return "viewgender";
+//	}
+//	
 }

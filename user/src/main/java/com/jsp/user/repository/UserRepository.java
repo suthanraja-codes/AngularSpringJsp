@@ -10,6 +10,6 @@ import com.jsp.user.entity.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity,Integer>{
 
-	List<UserEntity> findByGender(String gender);
+//	List<UserEntity> findByGender(String gender);
 
 }
